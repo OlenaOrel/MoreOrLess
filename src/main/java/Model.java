@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Olena Orel on 23.11.2019.
  */
@@ -7,6 +10,8 @@ public class Model {
 
     private int maxBarrier;
     private int minBarrier;
+
+    private List<Integer> inputNumbers = new ArrayList<Integer>();
 
     public int getSecretNumber() {
         return secretNumber;
@@ -21,9 +26,10 @@ public class Model {
         if (secretNumber == number) {
             return true;
         }
-        if (number < secretNumber) {
+        if (number < secretNumber && number > minBarrier) {
             minBarrier = number;
-        } else {
+        }
+        if (number > secretNumber && number < maxBarrier) {
             maxBarrier = number;
         }
         return false;
@@ -38,10 +44,11 @@ public class Model {
         return maxBarrier;
     }
 
-
     public int getMinBarrier() {
         return minBarrier;
     }
 
-
+    public List<Integer> getInputNumbers() {
+        return inputNumbers;
+    }
 }
