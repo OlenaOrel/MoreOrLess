@@ -17,6 +17,18 @@ public class Model {
                 (maxBarrier - minBarrier - 1) + minBarrier);
     }
 
+    public boolean isSecretNumber(int number) {
+        if (secretNumber == number) {
+            return true;
+        }
+        if (number < secretNumber) {
+            minBarrier = number;
+        } else {
+            maxBarrier = number;
+        }
+        return false;
+    }
+
     public void setPrimaryBarrier(int minBarrier, int maxBarrier) {
         this.minBarrier = minBarrier;
         this.maxBarrier = maxBarrier;
